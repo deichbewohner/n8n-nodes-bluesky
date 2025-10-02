@@ -1,0 +1,36 @@
+{
+  "name": "n8n-nodes-bluesky",
+  "version": "0.0.1-alpha",
+  "description": "⚠️ PROOF OF CONCEPT - Bluesky nodes for n8n (unmaintained, use at own risk)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "test": "ts-node tests/api-test.ts",
+    "dev": "N8N_PORT=3000 N8N_HOST=0.0.0.0 N8N_CUSTOM_EXTENSIONS=/home/ubuntu/project npx n8n start"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/BlueskyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/BlueskySearch.node.js"
+    ]
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "bluesky",
+    "at-protocol"
+  ],
+  "peerDependencies": {
+    "n8n-workflow": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.0"
+  }
+}
